@@ -97,7 +97,7 @@ public class Humain {
 			return;
 		}
 		
-		parler(nom + " Je connais beaucoup de monde dont : ");
+		parler(" Je connais beaucoup de monde dont : ");
 			for (int i = 0; i < nbConnaisssances; i++) {
 				System.out.print(memoires[i].getNom());
 				if( i < nbConnaisssances - 1)
