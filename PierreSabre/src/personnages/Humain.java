@@ -3,7 +3,7 @@ public class Humain {
 	
 	private String nom;
 	private String boissons;
-	int argent;
+	private int argent;
 	
 	
 	
