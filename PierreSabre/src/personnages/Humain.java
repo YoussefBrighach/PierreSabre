@@ -1,17 +1,26 @@
 package personnages;
+
+import java.util.Iterator;
+
 public class Humain {
 	
 	private String nom;
 	private String boissons;
 	private int argent;
+	protected int nbConnaisssances;
+	protected Humain[] memoires = new Humain[30];
 	
 	
 	
+	
+
 	public Humain(String nom, String boissons, int argent) {
+		super();
 		this.nom = nom;
 		this.boissons = boissons;
 		this.argent = argent;
 	}
+
 	public String getNom() {
 		return nom;
 	}
@@ -42,19 +51,65 @@ public class Humain {
 	}
 	
 	protected void gagnerArgent(int gain) {
-		argent = argent + gain;
+		argent += gain;
 		
 	}
 	
 	protected void perdreArgent(int perte) {
-		argent = argent - perte;
+		argent -= perte;
 		
 		
 	}
 	
 	
-	public void parler(String texte) {
+	protected void parler(String texte) {
 		System.out.println("(" + nom + ") - " + texte);
+	}
+	
+	
+	public void faireConnaissancesAvec(Humain homme2){
+		this.direBonjour();
+		homme2.repondre(this);
+		this.memoriser(homme2);
+		
+		
+	}
+	
+	private void repondre(Humain homme1) {
+		this.direBonjour();
+		this.memoriser(homme1);
+		
+		
+	}
+	
+	private void memoriser(Humain homme1) {
+		if(nbConnaisssances < memoires.length)
+		{
+			memoires[nbConnaisssances] = homme1;
+			nbConnaisssances++;
+		}
+		
+	}
+	
+	public void listerConnaissance() {
+		if(nbConnaisssances == 0)
+		{
+			return;
+		}
+		
+		parler(nom + " Je connais beaucoup de monde dont : ");
+			for (int i = 0; i < nbConnaisssances; i++) {
+				System.out.print(memoires[i].getNom());
+				if( i < nbConnaisssances - 1)
+				{
+					System.out.print(", ");
+				}
+				
+				
+			}
+			
+			System.out.println();
+			
 	}
 	
 	

@@ -5,7 +5,7 @@ package personnages;
 public class Commercant extends Humain{
 
 	public Commercant(String nom, int argent) {
-		super(nom, "thè", argent);
+		super(nom, "thé", argent);
 	}
 	
 	
