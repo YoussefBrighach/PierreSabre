@@ -10,14 +10,14 @@ public class Commercant extends Humain{
 	
 	
 	public int seFaireExtorquer(){
-		int argent_commercant = getArgent();
-		if(argent_commercant >= 0) {
-			perdreArgent(argent_commercant);
+		int argentcommercant = getArgent();
+		if(argentcommercant >= 0) {
+			perdreArgent(argentcommercant);
 			
 		}
 		
 		parler("J’ai tout perdu! Le monde est trop injuste...");
-		return argent_commercant;
+		return argentcommercant;
 		
 		
 	}

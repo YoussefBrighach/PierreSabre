@@ -30,7 +30,7 @@ public class HistoireTP4 {
 		
 		marco.boire();
 		
-		Yakuza yakulenoir = new Yakuza("Yaku Le Noir", "whisky", 30, "Warsong", 0);
+		Yakuza yakulenoir = new Yakuza("Yaku Le Noir", "whisky", 30, "Warsong", 4);
 		
 		yakulenoir.direBonjour();
 		yakulenoir.extorquer(marco);
@@ -39,6 +39,8 @@ public class HistoireTP4 {
 		
 		roro.direBonjour();
 		roro.donner(marco);
+		
+		roro.provoquer(yakulenoir);
 		
 		
 		

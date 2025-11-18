@@ -1,12 +1,10 @@
 package personnages;
-import personnages.Humain;
-import personnages.Commercant;
 
 
 public class Yakuza extends Humain{
 	
 	private String clan;
-	private int reputation = 0;
+	private int reputation = 4;
 	
 	
 	public Yakuza(String nom, String boissons, int argent, String clan, int reputation) {
@@ -15,20 +13,66 @@ public class Yakuza extends Humain{
 		this.reputation = reputation;
 	}
 	
+	
+	
+	
+	public int perdre() {
+		int argantpris = getArgent();
+		if(argantpris > 0)
+		{
+			perdreArgent(argantpris);
+		}
+		
+		reputation = reputation - 1;
+		parler("J’ai perdu mon duel et mes " + argantpris + " sous, snif... J'ai déshonoré le clan de " + clan +".");
+		
+		return argantpris;
+	}
+	
+	
+	public void gagner(int gain) {
+		if(gain > 0)
+		{
+			gagnerArgent(gain);
+		}
+		reputation = reputation + 1;
+		parler("Ce ronin pensait vraiment battre" + getNom() + " du clan de " + clan + " ? Je l'ai dépouillé de ses "+ gain +".");
+		
+		
+	}
+	
+	
 	public void extorquer(Commercant victime) {
 		
 		parler(" Tiens, tiens, ne serait-ce pas un faible marchand qui passe par là ?");
 		parler(victime.getNom() + ", si tu tiens à la vie donne moi ta bourse !");
 		
-		int argent_pris = victime.seFaireExtorquer();
+		int argentpris = victime.seFaireExtorquer();
 		
-		gagnerArgent(argent_pris);
+		gagnerArgent(argentpris);
 		
 		reputation++;
 		
-		parler("J’ai piqué les " + argent_pris + " sous de " + victime.getNom() + ", ce qui me fait " + getArgent() +" sous dans ma poche. Hi ! Hi !");
+		parler("J’ai piqué les " + argentpris + " sous de " + victime.getNom() + ", ce qui me fait " + getArgent() +" sous dans ma poche. Hi ! Hi !");
 		
 	}
+
+
+
+
+	public int getReputation() {
+		return reputation;
+	}
+
+
+
+
+	public void setReputation(int reputation) {
+		this.reputation = reputation;
+	}
+	
+	
+	
 	
 	
 	
